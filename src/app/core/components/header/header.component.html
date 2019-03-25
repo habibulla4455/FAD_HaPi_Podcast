@@ -19,6 +19,16 @@
       <i class="nav__icon fa fa-history" aria-hidden="true"></i>
     </a>
   </li>
+  <li class="nav__item" routerLinkActive="active">
+    <a class="nav__link" routerLink="/dashboard" title="Dashboard">
+      <i class="nav__icon fa fa-address-book-o" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li class="nav__item" routerLinkActive="active">
+    <a class="nav__link" (click)="authService.SignOut()" title="logout">
+      <i class="nav__icon fa fa-ban" aria-hidden="true"></i>
+    </a>
+  </li>
 </ul>
 
 <ul class="nav-back" *ngIf="!isHome">

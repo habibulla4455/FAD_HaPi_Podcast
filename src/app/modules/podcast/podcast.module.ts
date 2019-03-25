@@ -17,6 +17,7 @@ import { FeedHeaderComponent } from './components/feed-header/feed-header.compon
 import { HistoryListComponent } from './components/history-list/history-list.component';
 import { PodcastService } from '@core/http/podcast.service';
 import { SharedModule } from '@shared/shared.module';
+import { AuthService } from 'app/Auth_1/shared/services/auth.service';
 
 @NgModule({
   imports: [
@@ -44,7 +45,8 @@ import { SharedModule } from '@shared/shared.module';
     PodcastComponent
   ],
   providers: [
-    PodcastService
+    PodcastService,
+    AuthService
   ]
 
 })

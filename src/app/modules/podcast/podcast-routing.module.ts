@@ -7,18 +7,19 @@ import { FeedComponent } from './pages/feed/feed.component';
 import { CategoryComponent } from './pages/category/category.component';
 import { HistoryComponent } from './pages/history/history.component';
 import { SubscribesComponent } from './pages/subscribes/subscribes.component';
+import { AuthGuard } from 'app/Auth_1/shared/guard/auth.guard';
 
 const routes: Routes = [
   {
-    path: 'podcast', component: PodcastComponent,
+    path: 'podcast', component: PodcastComponent, canActivate: [AuthGuard],
     children: [
-      { path: '', redirectTo: 'home', pathMatch: 'full' },
-      { path: 'home', component: HomeComponent },
-      { path: 'feed/:id', component: FeedComponent },
-      { path: 'category/:id/:name', component: CategoryComponent },
-      { path: 'search', component: SearchComponent },
-      { path: 'history', component: HistoryComponent },
-      { path: 'subscribes', component: SubscribesComponent },
+      { path: '', redirectTo: 'home', pathMatch: 'full', canActivate: [AuthGuard] },
+      { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+      { path: 'feed/:id', component: FeedComponent, canActivate: [AuthGuard] },
+      { path: 'category/:id/:name', component: CategoryComponent, canActivate: [AuthGuard] },
+      { path: 'search', component: SearchComponent, canActivate: [AuthGuard] },
+      { path: 'history', component: HistoryComponent, canActivate: [AuthGuard] },
+      { path: 'subscribes', component: SubscribesComponent, canActivate: [AuthGuard] },
     ]
   }
 ];

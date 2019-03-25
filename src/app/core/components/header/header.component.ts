@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, UrlSegment, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { HeaderService } from '@core/services/header.service';
+import { AuthService } from 'app/Auth_1/shared/services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -16,8 +17,9 @@ export class HeaderComponent implements OnInit {
 
   constructor(private router: Router,
     private location: Location,
-    private headerService: HeaderService) {
-  }
+    private headerService: HeaderService,
+    public authService: AuthService) {
+  }  
 
   ngOnInit() {
     this.router.events.subscribe((val) => {
